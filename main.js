@@ -7,7 +7,6 @@ function App() {
         let idx = counters.findIndex(el => el.id === id)
         // console.log("counter id =", idx)
 
-        // add counter at this
         const newCounters = [...counters]
         if (newCounters[idx].number + n < 0) { return }
 
@@ -20,11 +19,11 @@ function App() {
     const [sum , setSum] = React.useState(0)
 
     const sumAllCounter = (newCounters) => {
-        console.log('is this awoked?')
-        console.log("Counters:", counters);
+        // console.log('is this awoked')
+        // console.log("Counters:", counters);
 
         let result = newCounters.reduce( (prev,acc) => {
-            console.log(prev, acc)
+            // console.log(prev, acc)
            return prev + acc.number
         }, 0)
 
@@ -34,7 +33,7 @@ function App() {
 
     const addCounter = (i) => {
         const newArr = [...counters]
-        // console.log(counters)
+        console.log(counters.length)
 
         newArr.push({ id: i, number: 0 })
         // console.log(newArr)
@@ -57,7 +56,6 @@ function App() {
         setCounters(newArr)
         sumAllCounter(newArr)
 
-
         // const rmNewArr = [...counters]
         // rmNewArr.splice(0, 1, idxx)
     
@@ -78,7 +76,6 @@ function App() {
 
 }
 
-
 function Counter(props) {
     // console.log(props)
     const { item, updateCounter, rmCounter} = props
@@ -93,7 +90,6 @@ function Counter(props) {
         </div>
     )
 }
-
 
 ReactDOM.createRoot(document.querySelector('#root'))
 .render(<App />)
